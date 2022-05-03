@@ -26,6 +26,7 @@ class Truncation(ABC):
         Constructor
         
         Args:
+            self (Truncation): object to initialize
             _redist(Redistribution): method for redistributing unassigned mass
             _theta (set(int)): solution space
         Returns:
@@ -41,6 +42,7 @@ class Truncation(ABC):
         truncates distribution
         
         Args:
+            self (Truncation): Truncation object
         Returns:
             focal elements, mass
         """
@@ -51,6 +53,7 @@ class Truncation(ABC):
         redsitributes truncated mass (see Redistribution enum for details)
         
         Args:
+            self (Truncation): Truncation object
             _inds (list(int)): indices to remove
             _fe (list(set(int))): list of focal elements
             _mass (list(int)): list of masses
@@ -157,6 +160,7 @@ class Truncation(ABC):
         removes mass from distribution
         
         Args:
+            self (Truncation): Truncation object
             _i (list(int)): indices to remove
             _fe (list(set(int))): list of focal elements
             _mass (list(int)): list of masses
@@ -184,6 +188,7 @@ class ThresholdTrunc(Truncation):
         Constructor
         
         Args:
+            self (ThresholdTrunc): Object to initialize
             _thresh (float): minimum mass to keep an element
             _is_rel (bool): if false does mass per proposition, otherwise does mass per element of proposition
             _redist(Redistribution): method for redistributing unassigned mass
@@ -203,6 +208,7 @@ class ThresholdTrunc(Truncation):
         Truncates distribution
         
         Args:
+            self (ThresholdTrunc): Truncation object
             _fe (list(set(int))): focal elements
             _mass (list(int)): mass of focal elements
             _thresh (float): minimum mass to keep an element
@@ -241,6 +247,7 @@ class NTermsTrunc(Truncation):
         Constructor
         
         Args:
+            self (NTermTrunc): Object to initialize
             _n (float): maximum number of terms to keep
             _is_rel (bool): if false does mass per proposition, otherwise does mass per element of proposition
             _redist(Redistribution): method for redistributing unassigned mass
@@ -260,6 +267,7 @@ class NTermsTrunc(Truncation):
         Truncates distribution
         
         Args:
+            self (NTermTrunc): Truncation object
             _fe (list(set(int))): focal elements
             _mass (list(int)): mass of focal elements
             _n (float): maximum number of terms to keep
